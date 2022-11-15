@@ -1,0 +1,17 @@
+<h1>Listado de alumnos</h1>
+
+<ul>
+    <!-- En las comillas se le pone la declaración y se le añade el nombre de la clase -->
+    <li *ngFor="let item of students;let i=index;let first=first;let par=even;let impar=odd;"
+    [ngClass]="{par:par,impar:impar}">{{i+1}}-{{item}}</li>
+
+</ul>
+<h3 *ngIf="">Aprobados</h3>
+<h3 *ngIf="approved.length>0;else malo"></h3>
+<ng-template #malo>
+    <h3>Qué malo eres no aprueba ni quemado</h3>
+</ng-template>
+<ul>
+    <li *ngFor="let item of approved">{{item}}</li>
+</ul>
+<button (click)="cambiarLista()">Aprobar</button>
