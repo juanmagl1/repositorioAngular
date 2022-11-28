@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from '../interfaces/characters';
+import { BsService } from '../services/brawl-stars.service';
 
 @Component({
   selector: 'app-add-character',
@@ -8,13 +9,14 @@ import { Character } from '../interfaces/characters';
 })
 export class AddCharacterComponent  {
 
-  constructor() { }
+  constructor(private bsService:BsService) {
+    console.log('constructor');
+   }
   @Input() nuevo:Character={name:'',healthy:0}
-  @Input() personajes: Character[]=[]
+
 addCharacter(){
-  let add={name:this.nuevo.name,healthy:this.nuevo.healthy}
-   this.personajes.push(add);
-   this.nuevo.name='';
-   this.nuevo.healthy=0;
+  this.bsService.addCharacter({...this.nuevo})
+  this.nuevo.name='';
+  this.nuevo.healthy=0;
  }
 }

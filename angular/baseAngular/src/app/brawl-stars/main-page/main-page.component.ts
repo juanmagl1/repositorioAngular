@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Character } from '../interfaces/characters';
+import { BsService } from '../services/brawl-stars.service';
 
 @Component({
   selector: 'app-main-page',
@@ -6,28 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent  {
+    constructor(){
+   
+  }
 nuevo={
   name:'Mamon',
   healthy:10000
 }
-personajes=[
-  {name:"Shelly",
-  healthy:3600
-},
-{
-  name:"Nita",
-  healthy:2800,
-},
-{
-  name:"Colt",
-  healthy:800
-},
-{
-  name:"Jessie",
-  healthy:1800
-}
-]
 
+
+// addCharacter(character:Character){
+//   this.personajes.push({...character});
+// }
 
 
 
