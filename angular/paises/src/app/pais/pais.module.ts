@@ -7,6 +7,9 @@ import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 import { PaisServicesService } from '../services/pais.services.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { TablaComponent } from './components/tabla/tabla.component';
 
 
 
@@ -15,12 +18,15 @@ import { FormsModule } from '@angular/forms';
     PorCapitalComponent,
     PorPaisComponent,
     PorRegionComponent,
-    VerPaisComponent
+    VerPaisComponent,
+    BusquedaComponent,
+    TablaComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers:[
     PaisServicesService

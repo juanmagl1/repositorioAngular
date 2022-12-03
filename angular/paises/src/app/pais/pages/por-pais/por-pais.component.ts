@@ -8,13 +8,27 @@ import { Paises } from '../../interfaces/paises.interface';
   styleUrls: ['./por-pais.component.css']
 })
 export class PorPaisComponent  {
-cadena:string=""
+  countries:Paises[]=[];
+error:boolean=false;
+textError:string="";
   constructor(private listaPaises:PaisServicesService) { }
   get numeroPaises():Paises[]{
-    return this.listaPaises.paises;
+    return this.countries;
   }
-  buscaPais(query:string){
-    this.listaPaises.buscarPaises(query);
+  //Le ponemos un parametro al metodo y llamamos al servicio con la cadena del parametro
+  buscaPais(cadena:string){
+    this.listaPaises.buscarPaises(cadena)
+    .subscribe({
+      next:(resp)=>{
+        this.countries=resp
+        this.error=false
+      },
+      error:(error)=>{
+        this.error=true
+        this.textError=cadena
+      }
+    })
+    
   }
 
 }
