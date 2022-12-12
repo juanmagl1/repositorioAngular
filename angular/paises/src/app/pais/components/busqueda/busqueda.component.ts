@@ -5,8 +5,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   templateUrl: './busqueda.component.html'
 })
 export class BusquedaComponent implements OnInit {
-//Salida de informacion hacia el hijo
-@Output() paisEvento=new EventEmitter<string>();
+//Salida de informacion hacia el hijo da igual donde se tipe pero tienes que tiparlo
+@Output() paisEvento:EventEmitter<string>=new EventEmitter();
 //Hce falta una cadena para el evento que vamos a emitir
 pais:string=""
 
@@ -19,5 +19,6 @@ pais:string=""
   //Esta información ira hacia el padre ques es ver-pais
 buscaPais(){
   this.paisEvento.emit(this.pais);
+  this.pais="";
 }
 }
